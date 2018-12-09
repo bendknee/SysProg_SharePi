@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  </head>
+  <body>
+    <form id="form" method="POST" enctype="multipart/form-data" action="{% url 'web:file_post' %}">
+    <h1>File Form</h1>
+    {% csrf_token %}
+    {{ form }}
+    <input id="submit" type="submit" class="btn btn-lg btn-block btn-info" value="Submit">
+    </form>
+  </body>
+</html>
