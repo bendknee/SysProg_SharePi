@@ -8,9 +8,9 @@
   </head>
   <body>
     <form id="form" method="POST" enctype="multipart/form-data" action="{% url 'web:file_post' %}">
-    <h1>File Form</h1>
+    <h1>File Upload</h1>
     {% csrf_token %}
-    {{ form }}
+    {{ form.as_p }}
     <input id="submit" type="submit" class="btn btn-lg btn-block btn-info" value="Submit">
     </form>
   </body>

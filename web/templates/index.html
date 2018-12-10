@@ -9,23 +9,11 @@
     </style>
   </head>
   <body>
-    <h1>Hello, Raspberry Pi!</h1>
-    <div class="table">
-      <div>
-        <div ><p>Name</p></div>
-        <div><p>Uploaded at</p></div>
-        <div><p>Size</p></div>
-        <div><p>Description</p></div>
-      </div>
-      <div >
-        <div><p>file</p></div>
-      </div>
-      <div>
-        <div>
-          <p>file 2</p>
-        </div>
-      </div>
-      
-    </div>
+    <h1>SharePi</h1>
+    <p>
+      SharePi adalah aplikasi yang terbenam pada Raspberry Pi untuk berbagi konten pada satu jaringan
+      LAN.
+    </p>
+    <a href="{% url 'web:file_form' %}">Klik</a> untuk mulai berbagi
   </body>
 </html>
