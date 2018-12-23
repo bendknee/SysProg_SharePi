@@ -1,3 +1,5 @@
+{% load staticfiles %}
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,6 +16,12 @@
       SharePi adalah aplikasi yang terbenam pada Raspberry Pi untuk berbagi konten pada satu jaringan
       LAN.
     </p>
+    {% if file %}
+    <p>Untuk memasuki web, scan QR Code dibawah ini ke device</p>
+    <img src="{% static 'images/qrcode.png' %}">
+    {% else %}
     <a href="{% url 'web:file_form' %}">Klik</a> untuk mulai berbagi
+    {% endif %}
+    
   </body>
 </html>
