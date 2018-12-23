@@ -16,10 +16,10 @@ def index(request):
     ip = ip.replace(".","")
     if(ip in granted_access):
         return render(request, 'index.html', {})
-    else:
-        waiting_access.append[ip]
+    elif(ip not in waiting_access):
+        waiting_access.append(ip)
         subprocess.check_output("qr --factory=pymaging " + ip + " > web\\\static\\\images\\\qrcode.png", shell=True)
-        return render(request, 'index.html', {"file":"qrcode.png"})
+    return render(request, 'index.html', {"file":"qrcode.png"})
 
 def file_form(request):
     return render(request, 'form.html', {'form': FileCreationForm})
