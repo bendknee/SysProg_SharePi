@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from .forms import FileCreationForm
 from .models import File
 import subprocess
+from ipware import get_client_ip
 
 # Create your views here.
 
@@ -11,7 +12,6 @@ granted_access = []
 waiting_access = []
 
 def index(request):
-    from ipware import get_client_ip
     ip, is_routable = get_client_ip(request)
     ip = ip.replace(".","")
     if(ip in granted_access):
