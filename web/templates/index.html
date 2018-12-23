@@ -17,11 +17,13 @@
       LAN.
     </p>
     {% if file %}
-    <p>Untuk memasuki web, scan QR Code dibawah ini ke device</p>
-    <img src="{% static 'images/qrcode.png' %}">
+    <p>Untuk mendapat akses upload, scan QR Code dibawah ini ke device</p>
+    <p>Refresh setelah sukses melakukan verifikasi (lampu hijau)</p>
+    <img src="{% static 'images/qrcode.png' %}" width=350px height=350px alt="gada">
     {% else %}
-    <a href="{% url 'web:file_form' %}">Klik</a> untuk mulai berbagi
+    <a href="{% url 'web:file_form' %}">Klik disini</a> untuk mulai berbagi
     {% endif %}
-    
+    <br>
+    <a href="/storage">Klik disini</a> untuk melihat library
   </body>
 </html>

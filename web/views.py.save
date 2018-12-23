@@ -13,7 +13,6 @@ waiting_access = []
 def index(request):
     
     ip = request.META['REMOTE_ADDR']
-    ip = ip.replace(".","")
     #ip, is_routable = get_client_ip(request)
     ip = ip.replace(".","")
     if(ip in granted_access):
@@ -22,22 +21,17 @@ def index(request):
         waiting_access.append(ip)
     import pyqrcode
     qr = pyqrcode.create(ip)
-    qr.png("/var/www/sharepi-web-app/static/images/qrcode.png", scale=6)
+    qr.png("qrcode.png", scale=6) 
     return render(request, 'index.html', {"file":"qrcode.png"})
 
 def file_form(request):
-    ip = request.META['REMOTE_ADDR']
-    ip = ip.replace(".","")
-    if(ip in granted_access):
-        return render(request, 'form.html', {'form': FileCreationForm})
-    else:
-        return HttpResponseRedirect("/")
-        
+    return render(request, 'form.html', {'form': FileCreationForm})
+
 def file_post(request):
     if request.method == 'POST':
         the_file = File(name=request.POST['name'], file=request.FILES['file'])
         the_file.save()
-    return HttpResponseRedirect('/')
+        return HttpResponseRedirect('/')
 
 def file_view(request):
     return render(request, 'list.html', {})
