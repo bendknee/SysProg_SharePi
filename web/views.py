@@ -18,7 +18,7 @@ def index(request):
         return render(request, 'index.html', {})
     elif(ip not in waiting_access):
         waiting_access.append(ip)
-        subprocess.check_output("qr --factory=pymaging " + ip + " > web\\\static\\\images\\\qrcode.png", shell=True)
+    subprocess.check_output("qr --factory=pymaging " + ip + " > web\\\static\\\images\\\qrcode.png", shell=True)
     return render(request, 'index.html', {"file":"qrcode.png"})
 
 def file_form(request):
